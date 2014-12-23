@@ -30,12 +30,9 @@ import com.example.slidingpane.swiperefresh.SwipeRefreshLayout_scrollView_3.OnRe
 import com.example.slidingpane.swiperefresh.SwipeRefreshLayout_scrollView_3.loadMoreInface;
 
 /**
- * @ClassName: SlidingPaneContentFragment
- * @Description: TODO
- * @author: raot 719055805@qq.com
- * @date: 2014年9月5日 上午10:44:01
+ * scrollview 上下拉刷新
  */
-public class ContentFragment extends Fragment implements OnRefreshListener {
+public class ScrollViewFragment extends Fragment implements OnRefreshListener {
 	private SwipeRefreshLayout_scrollView_3<Object> mSwipeRefreshWidget;
 
 	public void setCurrentViewPararms(FrameLayout.LayoutParams layoutParams) {
@@ -46,7 +43,6 @@ public class ContentFragment extends Fragment implements OnRefreshListener {
 		return (LayoutParams) mSwipeRefreshWidget.getLayoutParams();
 	}
 
-	@SuppressWarnings("deprecation")
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -61,31 +57,15 @@ public class ContentFragment extends Fragment implements OnRefreshListener {
 				mHandler.postDelayed(new Runnable() {
 					@Override
 					public void run() {
-						Toast.makeText(getActivity(), "停止加载更多", 0).show();
 						mSwipeRefreshWidget.stopLoadMore();
 					}
 				}, 2000);
 				
 			}
 		});
-//		list = new ArrayList<String>();
-//		for (int i = 0; i < 20; i++) {
-//			list.add("我是程序员!");
-//		}
-//		adpter = new ArrayAdapter<String>(getActivity(),
-//				android.R.layout.simple_dropdown_item_1line, list);
-//		listview.setAdapter(adpter);
 		mSwipeRefreshWidget.setColorScheme(R.color.color1, R.color.color2,
 				R.color.color3, R.color.color4);
 		mSwipeRefreshWidget.setOnRefreshListener(this);
-//		listview.setOnItemClickListener(new OnItemClickListener() {
-//			@Override
-//			public void onItemClick(AdapterView<?> parent, View view,
-//					int position, long id) {
-//				
-//			}
-//
-//		});
 		return mSwipeRefreshWidget;
 	}
 

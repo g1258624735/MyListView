@@ -28,7 +28,7 @@ import com.example.slidingpane.SlidingPaneLayout_g.PanelSlideListener;
 public class MainActivity extends Activity {
 	private SlidingPaneLayout_g slidingPaneLayout;
 	private MenuFragment menuFragment;
-	private ContentFragment contentFragment;
+	private MainFragment contentFragment;
 	private DisplayMetrics displayMetrics = new DisplayMetrics();
 	private int maxMargin = 0;
 	
@@ -39,7 +39,7 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.slidingpane_main_layout);
 		slidingPaneLayout = (SlidingPaneLayout_g) findViewById(R.id.slidingpanellayout);
 		menuFragment = new MenuFragment();
-		contentFragment = new ContentFragment();
+		contentFragment = new MainFragment();
 		FragmentTransaction transaction = getFragmentManager()
 				.beginTransaction();
 		transaction.replace(R.id.slidingpane_menu, menuFragment);
