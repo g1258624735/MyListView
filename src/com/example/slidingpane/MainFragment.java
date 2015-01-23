@@ -61,6 +61,8 @@ public class MainFragment extends Fragment implements OnRefreshListener {
 		list = new ArrayList<String>();
 		list.add("0-listview刷新-ListViewRefeshFragment");
 		list.add("1-scrollview刷新-ScrollViewFragment");
+		list.add("2-重写listview刷新-XListViewFragment");
+		list.add("3-新的API21-DetailFragment");
 		adpter = new ArrayAdapter<String>(getActivity(),
 				android.R.layout.simple_dropdown_item_1line, list);
 		listview.setAdapter(adpter);
@@ -79,6 +81,14 @@ public class MainFragment extends Fragment implements OnRefreshListener {
 				}
 				if(position==1){
 					ScrollViewFragment fragmemnt = new ScrollViewFragment();
+					transaction.replace(R.id.slidingpane_content, fragmemnt);
+				}
+				if(position==2){
+					XListViewFragment fragmemnt = new XListViewFragment();
+					transaction.replace(R.id.slidingpane_content, fragmemnt);
+				}
+				if(position==3){
+					DetailFragment fragmemnt = new DetailFragment();
 					transaction.replace(R.id.slidingpane_content, fragmemnt);
 				}
 				transaction.addToBackStack(null);

@@ -22,7 +22,6 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.FrameLayout.LayoutParams;
-import android.widget.Toast;
 
 import com.example.slidingpane.swiperefresh.ScrollViewX;
 import com.example.slidingpane.swiperefresh.SwipeRefreshLayout_scrollView_3;
@@ -47,9 +46,10 @@ public class ScrollViewFragment extends Fragment implements OnRefreshListener {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
-		mScrollView = (ScrollViewX) inflater.inflate(R.layout.layout_scrollview,
-				container, false);
-		mSwipeRefreshWidget = new SwipeRefreshLayout_scrollView_3<Object>(getActivity());
+		mScrollView = (ScrollViewX) inflater.inflate(
+				R.layout.layout_scrollview, container, false);
+		mSwipeRefreshWidget = new SwipeRefreshLayout_scrollView_3<Object>(
+				getActivity());
 		mSwipeRefreshWidget.addScrollView(mScrollView);
 		mSwipeRefreshWidget.setLoadMore(new loadMoreInface() {
 			@Override
@@ -60,7 +60,7 @@ public class ScrollViewFragment extends Fragment implements OnRefreshListener {
 						mSwipeRefreshWidget.stopLoadMore();
 					}
 				}, 2000);
-				
+
 			}
 		});
 		mSwipeRefreshWidget.setColorScheme(R.color.color1, R.color.color2,
@@ -80,7 +80,7 @@ public class ScrollViewFragment extends Fragment implements OnRefreshListener {
 		@Override
 		public void run() {
 			mSwipeRefreshWidget.setRefreshing(false);
-//			adpter.notifyDataSetChanged();
+			// adpter.notifyDataSetChanged();
 		}
 
 	};
